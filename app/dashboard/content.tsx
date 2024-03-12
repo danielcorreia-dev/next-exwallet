@@ -2,7 +2,16 @@ import React from 'react';
 import { Button } from "@/components/ui/button";
 import { Card, CardHeader, CardTitle, CardDescription } from "@/components/ui/card";
 import { TableCell, TableRow } from "@/components/ui/table";
-
+import { Drawer, DrawerClose, DrawerContent, DrawerDescription, DrawerFooter, DrawerHeader, DrawerTitle, DrawerTrigger } from '@/components/ui/drawer';
+import { Input } from '@/components/ui/input';
+import { Label } from '@/components/ui/label';
+import {
+    Select,
+    SelectContent,
+    SelectItem,
+    SelectTrigger,
+    SelectValue,
+} from "@/components/ui/select"
 const DashboardContent = () => {
     const invoices = [
         {
@@ -29,7 +38,43 @@ const DashboardContent = () => {
         <div className="container">
             <div className="flex justify-between">
                 <h1 className="text-2xl md:text-2xl mb-3 mt-10 md:mb-0">Dashboard</h1>
-                <Button className="mb-3 mt-10 md:mb-0">Nova transação</Button>
+                <Drawer>
+                    <DrawerTrigger asChild>
+                        <Button className='mb-3 mt-10 md:mb-0'>Nova Transação</Button>
+                    </DrawerTrigger>
+                    <DrawerContent>
+                        <div className="mx-auto w-full max-w-sm">
+                            <DrawerHeader>
+                                <DrawerTitle>Nova Transação</DrawerTitle>
+                                <DrawerDescription className='mb-6'>Adicione uma nova transação</DrawerDescription>
+                            </DrawerHeader>
+                            <Label>
+                                Nome da trasação
+                            </Label>
+                            <Input placeholder='Petshop' className='my-5' />
+                            <Select>
+                                <SelectTrigger className="w-[180px]">
+                                    <SelectValue placeholder="Tipo da transação" />
+                                </SelectTrigger>
+                                <SelectContent>
+                                    <SelectItem value="Crédito">Crédito</SelectItem>
+                                    <SelectItem value="Débito">Débito</SelectItem>
+                                </SelectContent>
+                            </Select>
+                            <br />
+                            <Label>
+                                Valor gasto
+                            </Label>
+                            <Input type='number' className='my-5' placeholder='R$ 45,00' />
+                            <DrawerFooter>
+                                <Button>Enviar</Button>
+                                <DrawerClose asChild>
+                                    <Button variant="outline">Cancelar</Button>
+                                </DrawerClose>
+                            </DrawerFooter>
+                        </div>
+                    </DrawerContent>
+                </Drawer>
             </div>
             <div className="flex flex-col md:flex-row md:gap-5 justify-center">
                 <div className="grid grid-cols-1 md:grid-cols-3 md:gap-8">
