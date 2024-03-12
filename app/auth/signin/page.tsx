@@ -12,6 +12,7 @@ const SignInPage = async () => {
   if (session) {
     redirect('/app/accounts');
   }
+
   return (
     <main className="flex justify-center items-center h-full my-auto flex-1 py-64">
       <SignInWrapper />
