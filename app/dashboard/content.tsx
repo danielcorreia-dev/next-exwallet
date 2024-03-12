@@ -1,11 +1,7 @@
 'use client'
 import { Button } from "@/components/ui/button"
 import { Card, CardHeader, CardTitle, CardDescription } from "@/components/ui/card"
-import { TableCaption, TableHeader, TableRow, TableHead, TableBody, TableCell, TableFooter } from "@/components/ui/table"
-import { Table } from "lucide-react"
-
-
-
+import { TableCell, TableRow } from "@/components/ui/table"
 
 const DashboardContent = () => {
     const invoices = [
@@ -13,19 +9,19 @@ const DashboardContent = () => {
             nameOfTransaction: "Parcela do Carro",
             totalAmount: "R$250.00",
             paymentMethod: "Crédito",
-            id: 1
+            id: "1"
         },
         {
             nameOfTransaction: "Compras do mês",
             totalAmount: "R$2250.00",
             paymentMethod: "Crédito",
-            id: 2
+            id: "2"
         },
         {
             nameOfTransaction: "Petshop",
             totalAmount: "R$50.00",
             paymentMethod: "Débito",
-            id: 3
+            id: "3"
         },
     ]
     return (
@@ -62,34 +58,19 @@ const DashboardContent = () => {
                         </Card>
                     </div>
                 </div>
-            </div>
-            <Table>
-                <TableCaption>A list of your recent invoices.</TableCaption>
-                <TableHeader>
-                    <TableRow>
-                        <TableHead className="w-[100px]">Invoice</TableHead>
-                        <TableHead>Status</TableHead>
-                        <TableHead>Method</TableHead>
-                        <TableHead className="text-right">Amount</TableHead>
-                    </TableRow>
-                </TableHeader>
-                <TableBody>
+                <h1 className="text-2xl md:text-3xl mt-10 py-10 md:mb-0">
+                    Últimas Transações
+                </h1>
+                <div className="m-auto flex flex-col justify-center container align-middle">
                     {invoices.map((invoice) => (
                         <TableRow key={invoice.id}>
-                            Teste
-                            <TableCell className="font-medium">{invoice.nameOfTransaction}</TableCell>
+                            <TableCell className="w-[300px] font-medium">{invoice.nameOfTransaction}</TableCell>
                             <TableCell>{invoice.paymentMethod}</TableCell>
                             <TableCell className="text-right">{invoice.totalAmount}</TableCell>
                         </TableRow>
                     ))}
-                </TableBody>
-                <TableFooter>
-                    <TableRow>
-                        <TableCell colSpan={3}>Total</TableCell>
-                        <TableCell className="text-right">$2,500.00</TableCell>
-                    </TableRow>
-                </TableFooter>
-            </Table>
+                </div>
+            </div>
         </>
     )
 }
