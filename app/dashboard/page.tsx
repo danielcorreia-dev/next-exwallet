@@ -1,8 +1,10 @@
-const DashboardContent = () => {
+import DashboardContent from "./content"
+
+const DashboardPage = () => {
     return (
-        <div>
-            <h1>Dashboard</h1>
+        <div className="container">
+            <DashboardContent />
         </div>
     )
 }
-export default DashboardContent
+export default DashboardPage
