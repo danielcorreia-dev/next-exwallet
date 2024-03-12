@@ -16,6 +16,7 @@ CREATE TABLE "User" (
 -- CreateTable
 CREATE TABLE "Account" (
     "id" TEXT NOT NULL,
+    "name" TEXT NOT NULL,
     "userId" TEXT NOT NULL,
     "status" "AccountStatus" NOT NULL,
     "description" TEXT,
