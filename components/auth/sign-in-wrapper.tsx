@@ -1,34 +1,19 @@
-import React from 'react';
-import SignInForm from './sign-in-form';
+import Image from 'next/image';
 import GoogleSignInButton from './google-sign-in-button';
-import Link from 'next/link';
+import WhiteLogo from '@/public/exwallet-white.svg';
+import LogoIcon from '../icons/logo-icon';
 
-type Props = {};
-
-const SignInWrapper = (props: Props) => {
+const SignInWrapper = () => {
   return (
-    <div className="px-4 py-8 max-w-sm w-full">
-      <div>
-        <h1 className="text-2xl font-bold mb-8">Login</h1>
-        <GoogleSignInButton />
-        <div>
-          <p className="text-sm text-gray-500 mt-4">
-            Não tem uma conta?{' '}
-            <Link
-              href="/sign-up"
-              className="text-blue-600 hover:text-blue-600 hover:underline"
-            >
-              Cadastre-se
-            </Link>
-          </p>
+    <div className="px-4 py-8 max-w-sm w-full border text-center bg-neutral-50 rounded dark:bg-neutral-800 shadow-md">
+      <div className="mb-8 space-y-2">
+        <div className="relative size-12 mx-auto">
+          <LogoIcon logoOnly />
         </div>
-        <div className="relative flex py-5 items-center">
-          <div className="flex-grow border-t border-gray-400"></div>
-          <span className="flex-shrink mx-4 text-gray-400 text-sm">or</span>
-          <div className="flex-grow border-t border-gray-400"></div>
-        </div>
+        <h1 className="text-2xl font-bold mb-2">Login</h1>
+        <span className="text-neutral-400">Para entrar em ExWallet</span>
       </div>
-      <SignInForm />
+      <GoogleSignInButton />
     </div>
   );
 };

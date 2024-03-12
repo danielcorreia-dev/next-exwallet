@@ -1,11 +1,19 @@
-import SignInForm from '@/components/auth/sign-in-form';
 import SignInWrapper from '@/components/auth/sign-in-wrapper';
+import { auth } from 'auth';
+import { redirect } from 'next/navigation';
 
-type Props = Readonly<{}>;
+export const metadata = {
+  title: 'Login',
+};
 
-const SignInPage = (props: Props) => {
+const SignInPage = async () => {
+  const session = await auth();
+
+  if (session) {
+    redirect('/app/accounts');
+  }
   return (
-    <main className="h-dvh flex justify-center items-center">
+    <main className="flex justify-center items-center h-full my-auto flex-1 py-64">
       <SignInWrapper />
     </main>
   );
