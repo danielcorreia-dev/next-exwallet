@@ -1,3 +1,4 @@
+import DashboardContent from '@/app/dashboard/content';
 import { auth } from '@/auth';
 import prisma from '@/lib/prisma';
 import React from 'react';
@@ -20,7 +21,7 @@ const ShowAccountPage = async ({ params }: { params: { id: string } }) => {
       });
 
       if (account?.userId === user.id) {
-        return <div>teste</div>;
+        return <DashboardContent />;
       }
     }
   }
